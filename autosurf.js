@@ -1,5 +1,5 @@
 /*jslint indent: 2, node: true */
-/*global require: false, cess: false, download: false, cessBatch: false */
+/*global require: false, process: false, download: false, processBatch: false */
 
 // autoSurf.js
 //
