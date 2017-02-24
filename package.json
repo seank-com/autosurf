@@ -1,0 +1,33 @@
+{
+  "name": "autosurf",
+  "version": "1.0.0",
+  "description": "A tool to make surfing the web easier",
+  "main": "autosurf.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "bin": {
+    "autosurf": "./autosurf.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/seank-com/autosurf.git"
+  },
+  "keywords": [
+    "url",
+    "web",
+    "download",
+    "parse",
+    "scraper",
+    "scrape"
+  ],
+  "author": "Sean Kelly (http://www.seank.com)",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/seank-com/autosurf/issues"
+  },
+  "homepage": "https://github.com/seank-com/autosurf#readme",
+  "dependencies": {
+    "htmlparser2": "^3.9.2"
+  }
+}
