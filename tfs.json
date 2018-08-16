@@ -1,0 +1,35 @@
+[
+  {
+    "operation": "config",
+    "input": ["http://feeds.feedburner.com/thetimferrissshow?format=xml"],
+    "contexts": {
+      "tfs": "./tfs.js"
+    },
+    "quiet": false,
+    "hideErrors": false
+  },
+  {
+    "operation": "parse",
+    "oninit": "return ctx.tfs.onInit(1, sourceUrl, resolveUrl, resolveEntry);",
+    "onopentag": "ctx.tfs.onOpenTag(sourceUrl, resolveUrl, resolveEntry, tagname, attribs);",
+    "ontext": "ctx.tfs.onText(sourceUrl, resolveUrl, resolveEntry, text);",
+    "onclosetag": "ctx.tfs.onCloseTag(sourceUrl, resolveUrl, resolveEntry, tagname);"
+  },
+  {
+    "operation": "parse",
+    "oninit": "return ctx.tfs.onInit(2, sourceUrl, resolveUrl, resolveEntry);"
+  },
+  {
+    "operation": "filter",
+    "exclude": "^.*feeds.feedburner.com.*$"
+  },
+  {
+    "operation": "IO",
+    "outputFilename": "podcasts.json",
+    "padding": "  "
+  },
+  {
+    "operation": "filter",
+    "exclude": "^.*$"
+  }
+]

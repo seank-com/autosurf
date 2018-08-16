@@ -16,7 +16,7 @@ var http = require('http'),
   context = {},
   showDebug = false,
   quiet = true,
-  hideErrors = true,
+  hideErrors = false,
   batch = '',
   log = {
     dbg: function () {
@@ -174,15 +174,15 @@ var http = require('http'),
     if (options.ontext) { opts.ontext = options.ontext; }
     if (options.onclosetag) { opts.onclosetag = options.onclosetag; }
 
+    if (options.oninit) {
+      if (!options.oninit()) {
+        callback(null);
+        return;
+      }
+    }
+
     getPage(sourceUrl, function (err, response) {
       var parser = new htmlparser.Parser(opts);
-
-      if (options.oninit) {
-        if (!options.oninit()) {
-          callback(null);
-          return;
-        }
-      }
 
       if (err) {
         callback(err, { 'sourceUrl': sourceUrl });
